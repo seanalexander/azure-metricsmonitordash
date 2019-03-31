@@ -8,8 +8,6 @@
     Count = 7
 }
 
-[ResourceDefinition_VirtualMachine_metricAggregation] $metricAggregation = [ResourceDefinition_VirtualMachine_metricAggregation]::new();
-
 function Get-ResourceDefinition_virtualMachine {
     param(
         [Parameter(Mandatory = $true, Position = 0)]
