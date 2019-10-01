@@ -11,8 +11,11 @@ cls;
 Get-UrlForChart `
     -subscriptionId 'your-subscription-guid-goes-here' `
     -resourceGroup 'resourcegroupname' `
-    -computerNamePrefix 'prefix-of-webservers' `
-    -ComputerCount 14 -metricAggregation Avg;
+    -computerNamePrefix 'prefix-of-storageaccounts' `
+    -ComputerCount 14 `
+    -metricAggregation Sum  `
+    -metricType Transactions  `
+    -NumberStartsAt 0;
 ```
 
 This assumes your virtual machines are in a numbered order, ie:
