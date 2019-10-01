@@ -16,6 +16,7 @@ ENUM's for Parameters
     CPU_Credits_Consumed
     CPU_Credits_Remaining
 
+    Used_Capacity
     Blob_Capacity
     Container_Count
     Blob_Count
@@ -84,6 +85,26 @@ Virtual Machines - CPU
             $v2charts_TypeInformation.providers = "Microsoft.Compute/virtualMachines";
         }
         <#
+Storage Account
+#>
+
+        <#
+CAPACITY
+#>
+        
+<#
+    Available $metricAggregation = Avg
+#>
+"Used_Capacity" {
+    $metricAggregation = "Avg";
+    $v2charts_TypeInformation.metrics_name = "UsedCapacity";
+    $v2charts_TypeInformation.metrics_namespace = "microsoft.storage/storageaccounts";
+    $v2charts_TypeInformation.metricVisualization_displayName = "Used Capacity";
+    $v2charts_TypeInformation.title = "$($metricAggregation) Used Capacity";
+    $v2charts_TypeInformation.providers = "Microsoft.Storage/storageAccounts";
+}
+
+        <#
 Storage Account - Blob
 #>
 
@@ -91,14 +112,14 @@ Storage Account - Blob
 CAPACITY
 ALl metrics in this category accept only a $metricAggregation of: Avg
 #>
-        "Blob_Capacity" {
-            $metricAggregation = "Avg";
-            $v2charts_TypeInformation.metrics_name = "BlobCapacity";
-            $v2charts_TypeInformation.metrics_namespace = "microsoft.storage/storageaccounts";
-            $v2charts_TypeInformation.metricVisualization_displayName = "Blob Capacity";
-            $v2charts_TypeInformation.title = "$($metricAggregation) Blob Capacity";
-            $v2charts_TypeInformation.providers = "Microsoft.Storage/storageAccounts";
-        }
+"Blob_Capacity" {
+    $metricAggregation = "Avg";
+    $v2charts_TypeInformation.metrics_name = "BlobCapacity";
+    $v2charts_TypeInformation.metrics_namespace = "microsoft.storage/storageaccounts";
+    $v2charts_TypeInformation.metricVisualization_displayName = "Blob Capacity";
+    $v2charts_TypeInformation.title = "$($metricAggregation) Blob Capacity";
+    $v2charts_TypeInformation.providers = "Microsoft.Storage/storageAccounts";
+}
 
         "Blob_Container_Count" {
             $metricAggregation = "Avg";
